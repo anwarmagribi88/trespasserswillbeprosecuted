@@ -1,155 +1,201 @@
 /* --------------------
+   THEME: POP URBAN (IG PALETTE)
+   - Magenta/Purple base
+   - Acid yellow highlight
+   - Punch red accent
+   - Black ink text
+-------------------- */
+
+:root{
+  --bg: #B83CFF;          /* hot magenta/purple */
+  --panel: rgba(0,0,0,0.10);
+  --ink: #0b0b0b;         /* black */
+  --paper: #fff3a6;       /* warm acid yellow */
+  --yellow: #FFE84F;      /* strong yellow */
+  --red: #FF2D2D;         /* punch red */
+  --white: #ffffff;
+  --line: rgba(0,0,0,0.18);
+}
+
+/* --------------------
    RESET & BASE
 -------------------- */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-html {
-  font-size: 16px;
-}
+html{ font-size:16px; }
 
-body {
+body{
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
                Helvetica, Arial, sans-serif;
-  background: #0d0d0d;
-  color: #eaeaea;
+  background: var(--bg);
+  color: var(--ink);
   line-height: 1.6;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 
 /* --------------------
    LAYOUT
 -------------------- */
 
-.container {
-  max-width: 720px;
+.container{
+  max-width: 760px;
   margin: 0 auto;
   padding: 4rem 1.5rem;
 }
 
-section {
-  margin-bottom: 4rem;
-}
+section{ margin-bottom: 3.5rem; }
 
 /* --------------------
    TYPOGRAPHY
 -------------------- */
 
-h1 {
-  font-size: clamp(2.2rem, 6vw, 3.5rem);
-  font-weight: 700;
+h1{
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  margin-bottom: 1.5rem;
+  color: var(--yellow);
+  /* urban "sticker" outline vibe */
+  text-shadow:
+    -2px -2px 0 var(--ink),
+     2px -2px 0 var(--ink),
+    -2px  2px 0 var(--ink),
+     2px  2px 0 var(--ink);
+  margin-bottom: 1.2rem;
 }
 
-h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
+h2{
+  font-size: 1.05rem;
+  font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #b5b5b5;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  background: var(--yellow);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
   margin-bottom: 1rem;
 }
 
-p {
-  font-size: 0.95rem;
-  color: #d0d0d0;
-  max-width: 65ch;
+p{
+  font-size: 0.98rem;
+  color: var(--ink);
+}
+
+/* --------------------
+   PANELS (subtle structure)
+-------------------- */
+
+.hero p,
+section p{
+  background: rgba(255,255,255,0.65);
+  border: 1px solid var(--ink);
+  padding: 0.9rem 1rem;
+  box-shadow: 6px 6px 0 var(--ink);
+  max-width: 68ch;
 }
 
 /* --------------------
    DIVIDERS
 -------------------- */
 
-hr {
+hr{
   border: none;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  margin: 3rem 0;
+  height: 2px;
+  background: var(--ink);
+  opacity: 0.25;
+  margin: 2.5rem 0 3rem;
 }
 
 /* --------------------
    LINKS
 -------------------- */
 
-a {
-  color: #ffffff;
+a{
+  color: var(--ink);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding-bottom: 2px;
-  transition: all 0.2s ease;
+  border-bottom: 2px solid var(--ink);
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
-a:hover {
-  border-color: #ffffff;
-  opacity: 0.85;
-}
-
-/* --------------------
-   HERO / TITLE
--------------------- */
-
-.hero {
-  margin-bottom: 5rem;
-}
-
-.hero p {
-  font-size: 1rem;
-  color: #c4c4c4;
-  margin-top: 1rem;
+a:hover{
+  background: var(--yellow);
+  transform: translateY(-1px);
 }
 
 /* --------------------
-   LISTS (TRACKS / ENTRIES)
+   LISTS (SECTIONS)
 -------------------- */
 
-ul {
+ul{
   list-style: none;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
-li {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  font-size: 0.95rem;
-  color: #e0e0e0;
+li{
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.98rem;
+}
+
+li:last-child{ border-bottom: none; }
+
+/* small red “tag” accent on list bullets vibe */
+li::before{
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  background: var(--red);
+  border: 1px solid var(--ink);
+  vertical-align: middle;
+}
+
+/* --------------------
+   NOTICE IMAGE
+-------------------- */
+
+.notice-img img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 10px;
+  border: 1px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  background: rgba(255,255,255,0.35);
 }
 
 /* --------------------
    FOOTER
 -------------------- */
 
-footer {
-  margin-top: 6rem;
-  font-size: 0.75rem;
-  color: #888;
+footer{
+  margin-top: 4rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  color: rgba(0,0,0,0.75);
+}
+
+footer p{
+  display:inline-block;
+  background: rgba(255,255,255,0.55);
+  border: 1px solid var(--ink);
+  padding: 0.6rem 0.8rem;
+  box-shadow: 6px 6px 0 var(--ink);
 }
 
 /* --------------------
    RESPONSIVE
 -------------------- */
 
-@media (max-width: 600px) {
-  .container {
-    padding: 3rem 1.25rem;
-  }
-
-  h1 {
-    letter-spacing: 0.08em;
-  }
+@media (max-width: 600px){
+  .container{ padding: 3.2rem 1.2rem; }
+  h1{ letter-spacing: 0.09em; }
 }
-.notice-img img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.08);
-}
-
