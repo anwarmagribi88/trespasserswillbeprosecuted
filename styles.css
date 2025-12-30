@@ -367,3 +367,126 @@ footer p{
   padding: 0.4rem 0.6rem;
 }
 
+/* --------------------
+   RELEVANT CASES (CASE FILE FEEL)
+-------------------- */
+
+.case-file{
+  background: rgba(255,255,255,0.65);
+  border: 1px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.file-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.case-file h2{
+  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin: 0 0 0.35rem;
+}
+
+.file-meta{
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.65);
+}
+
+.file-stamp{
+  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: var(--red);
+  color: var(--white);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-2deg);
+  white-space: nowrap;
+}
+
+.case{
+  padding: 0.8rem 0;
+}
+
+.case-head h3{
+  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.case-meta{
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.65);
+  margin-bottom: 0.9rem;
+}
+
+.quote{
+  margin: 0 0 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1px dashed rgba(0,0,0,0.35);
+  background: rgba(255,255,255,0.55);
+  border-radius: 10px;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.note{
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.attribution{
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.6);
+}
+
+.case-divider{
+  border: none;
+  border-top: 1px dashed rgba(0,0,0,0.35);
+  margin: 1.4rem 0;
+}
+
+.file-footer{
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(0,0,0,0.18);
+}
+
+.disclaimer{
+  font-size: 0.78rem;
+  color: rgba(0,0,0,0.75);
+  margin-bottom: 0.9rem;
+}
+
+.case-file .credit{
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--yellow);
+  border: 1px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 0.45rem 0.6rem;
+}
+
