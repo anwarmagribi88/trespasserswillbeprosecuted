@@ -490,3 +490,9 @@ footer p{
   padding: 0.45rem 0.6rem;
 }
 
+.poison-title{
+  color: var(--yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
