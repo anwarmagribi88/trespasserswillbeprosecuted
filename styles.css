@@ -110,8 +110,9 @@ section p{
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   padding: 0.95rem 1rem;
-  max-width: 72ch;
+  width: 100%;
 }
+
 
 /* FIX: ensure the hero card never sticks to the title image */
 .hero p{
