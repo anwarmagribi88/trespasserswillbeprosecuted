@@ -150,6 +150,18 @@ li::before{
 }
 
 /* --------------------
+   Main Title Image
+-------------------- */
+
+.system-label{
+  font-size: 0.75rem;
+  opacity: 0.55;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  margin-top: -0.25rem;
+}
+
+/* --------------------
    NOTICE IMAGE
 -------------------- */
 
