@@ -33,6 +33,7 @@
   border: 1px solid var(--ink);
   box-shadow: 10px 10px 0 var(--ink);
   background: rgba(255,255,255,0.35);
+   margin: 0 auto 1.75rem;
 }
 
 
