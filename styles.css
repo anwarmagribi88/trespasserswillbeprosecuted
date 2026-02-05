@@ -26,11 +26,13 @@
 }
 
 .hero-title-image{
-  width: 100%;
-  max-width: 820px;
-  height: auto;
-  display: block;
-  margin: 0 auto 0.75rem;
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 10px;
+  border: 1px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--ink);
+  background: rgba(255,255,255,0.35);
 }
 
 
