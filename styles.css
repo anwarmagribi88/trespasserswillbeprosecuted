@@ -17,6 +17,15 @@
   --line: rgba(0,0,0,0.18);
 }
 
+.hero-sign{
+  width: 100%;
+  max-width: 900px;   /* keeps it from getting too huge on desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto 0.75rem;
+}
+
+
 /* --------------------
    RESET & BASE
 -------------------- */
