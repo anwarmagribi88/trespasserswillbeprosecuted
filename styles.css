@@ -1,53 +1,50 @@
-/* --------------------
-   THEME: POP URBAN (IG PALETTE)
-   - Magenta/Purple base
-   - Acid yellow highlight
-   - Punch red accent
+/* =========================================================
+   THEME: WARNING DOSSIER
+   - Safety Yellow background (warning sign common)
    - Black ink text
--------------------- */
+   - Red alert accent
+   - Clean “dossier” panels and consistent spacing
+========================================================= */
 
 :root{
-  --bg: #B83CFF;          /* hot magenta/purple */
-  --panel: rgba(0,0,0,0.10);
-  --ink: #0b0b0b;         /* black */
-  --paper: #fff3a6;       /* warm acid yellow */
-  --yellow: #FFE84F;      /* strong yellow */
-  --red: #FF2D2D;         /* punch red */
-  --white: #ffffff;
-  --line: rgba(0,0,0,0.18);
-}
+  /* Core palette */
+  --bg: #F7D600;            /* safety/warning yellow */
+  --ink: #111111;           /* near-black for readability */
+  --paper: rgba(255,255,255,0.80);
+  --paper-strong: rgba(255,255,255,0.92);
+  --line: rgba(0,0,0,0.22);
+  --shadow: #111111;
 
-.hero-sign{
-  width: 100%;
-  max-width: 900px;   /* keeps it from getting too huge on desktop */
-  height: auto;
-  display: block;
-  margin: 0 auto 0.75rem;
-}
+  /* Accents */
+  --red: #E30613;           /* warning red */
+  --muted: rgba(0,0,0,0.70);
 
-.hero-title-image{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius: 10px;
-  border: 1px solid var(--ink);
-  box-shadow: 10px 10px 0 var(--ink);
-  background: rgba(255,255,255,0.35);
-   margin: 0 auto 1.75rem;
-}
+  /* Layout rhythm */
+  --radius: 12px;
+  --stroke: 1px;
+  --shadow-lg: 10px 10px 0 var(--shadow);
+  --shadow-md: 8px 8px 0 var(--shadow);
+  --shadow-sm: 6px 6px 0 var(--shadow);
 
+  --space-1: 0.5rem;
+  --space-2: 0.85rem;
+  --space-3: 1.25rem;
+  --space-4: 1.75rem;
+  --space-5: 2.5rem;
+  --space-6: 3.25rem;
+
+  --container: 760px;
+}
 
 /* --------------------
    RESET & BASE
 -------------------- */
-
 *{ margin:0; padding:0; box-sizing:border-box; }
-
 html{ font-size:16px; }
+img{ max-width:100%; height:auto; display:block; }
 
 body{
-  font-family: -apple-system, BlinkMacSystemFont,
-               "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--ink);
   line-height: 1.6;
@@ -56,39 +53,36 @@ body{
 /* --------------------
    LAYOUT
 -------------------- */
-
 .container{
-  max-width: 760px;
+  max-width: var(--container);
   margin: 0 auto;
-  padding: 4rem 1.5rem;
+  padding: 3.5rem 1.5rem;
 }
 
-section{ margin-bottom: 3.5rem; }
+/* Consistent vertical rhythm */
+header.hero{ margin-bottom: var(--space-5); }
+section{ margin-bottom: var(--space-6); }
 
 /* --------------------
    TYPOGRAPHY
 -------------------- */
-
-h1{
+h1, h2, h3{
   font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: var(--yellow);
-  text-shadow:
-    -2px -2px 0 var(--ink),
-     2px -2px 0 var(--ink),
-    -2px  2px 0 var(--ink),
-     2px  2px 0 var(--ink);
-  margin-bottom: 1.2rem;
+}
+
+h1{
+  font-size: clamp(2rem, 5.2vw, 3.2rem);
+  color: var(--ink);
+  /* subtle “printed” feel */
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.35);
+  margin-bottom: var(--space-3);
 }
 
 h2{
-  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  margin-bottom: var(--space-3);
 }
 
 p{
@@ -97,34 +91,71 @@ p{
 }
 
 /* --------------------
-   PANELS (subtle structure)
+   PANELS / CARDS (single source of truth)
 -------------------- */
+.panel{
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 0.95rem 1rem;
+  max-width: 72ch;
+}
 
+/* Apply panels to hero + regular section paragraphs */
 .hero p,
 section p{
-  background: rgba(255,255,255,0.65);
-  border: 1px solid var(--ink);
-  padding: 0.9rem 1rem;
-  box-shadow: 6px 6px 0 var(--ink);
-  max-width: 68ch;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 0.95rem 1rem;
+  max-width: 72ch;
+}
+
+/* FIX: ensure the hero card never sticks to the title image */
+.hero p{
+  margin-top: var(--space-4);
+}
+
+/* --------------------
+   TITLE IMAGE (your warning sign image)
+-------------------- */
+.hero-title-image{
+  width: 100%;
+  border-radius: var(--radius);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-lg);
+  background: var(--paper-strong);
+  /* FIX: consistent space below image */
+  margin: 0 auto var(--space-4);
+}
+
+/* --------------------
+   NOTICE IMAGE (if you still use notice section elsewhere)
+-------------------- */
+.notice-img img{
+  width: 100%;
+  border-radius: var(--radius);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-lg);
+  background: var(--paper-strong);
 }
 
 /* --------------------
    DIVIDERS
 -------------------- */
-
 hr{
   border: none;
   height: 2px;
   background: var(--ink);
   opacity: 0.25;
-  margin: 2.5rem 0 3rem;
+  margin: var(--space-5) 0 var(--space-6);
 }
 
 /* --------------------
    LINKS
 -------------------- */
-
 a{
   color: var(--ink);
   text-decoration: none;
@@ -133,31 +164,31 @@ a{
 }
 
 a:hover{
-  background: var(--yellow);
+  background: rgba(255,255,255,0.55);
   transform: translateY(-1px);
 }
 
 /* --------------------
-   LISTS (SECTIONS)
+   LISTS
 -------------------- */
-
 ul{
   list-style: none;
-  margin-top: 1.25rem;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid var(--ink);
-  box-shadow: 6px 6px 0 var(--ink);
+  margin-top: var(--space-3);
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 li{
-  padding: 0.9rem 1rem;
+  padding: 0.95rem 1rem;
   border-bottom: 1px solid var(--line);
   font-size: 0.98rem;
 }
 
 li:last-child{ border-bottom: none; }
 
-/* small red “tag” accent on list bullets vibe */
 li::before{
   content: "";
   display: inline-block;
@@ -170,58 +201,44 @@ li::before{
 }
 
 /* --------------------
-   Main Title Image
+   SMALL META LABELS
 -------------------- */
-
-.system-label{
-  font-size: 0.75rem;
-  opacity: 0.55;
-  letter-spacing: 0.08em;
-  text-transform: lowercase;
-  margin-top: -0.25rem;
-}
-
-/* --------------------
-   NOTICE IMAGE
--------------------- */
-
-.notice-img img{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius: 10px;
-  border: 1px solid var(--ink);
-  box-shadow: 10px 10px 0 var(--ink);
-  background: rgba(255,255,255,0.35);
+.system-label,
+.meta,
+.file-meta,
+.case-meta,
+.attribution,
+.cover-caption{
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 /* --------------------
    FOOTER
 -------------------- */
-
 footer{
-  margin-top: 4rem;
+  margin-top: var(--space-6);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: rgba(0,0,0,0.75);
+  color: var(--muted);
 }
 
-footer p{
-  display:inline-block;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid var(--ink);
-  padding: 0.6rem 0.8rem;
-  box-shadow: 6px 6px 0 var(--ink);
+.footer-card{
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  margin: 0;
 }
 
-/* --------------------
-   RESPONSIVE
--------------------- */
-
-@media (max-width: 600px){
-  .container{ padding: 3.2rem 1.2rem; }
-  h1{ letter-spacing: 0.09em; }
+.footer-card p{
+  margin: 0.4rem 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
 }
 
 /* --------------------
@@ -231,12 +248,11 @@ footer p{
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin: 1.5rem 0 2.5rem;
+  margin: var(--space-4) 0 var(--space-5);
 }
 
 /* --------------------
    MASONRY GALLERY (CSS columns)
-   - Works great on mobile
 -------------------- */
 .gallery{
   column-count: 1;
@@ -254,162 +270,101 @@ footer p{
 .card{
   break-inside: avoid;
   margin: 0 0 1.25rem;
-  background: rgba(255,255,255,0.55);
-  border: 1px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--ink);
-  border-radius: 10px;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
   overflow: hidden;
 }
 
-.card img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
+.card img{ width: 100%; height: auto; display: block; }
 
 .card figcaption{
-  padding: 0.8rem 0.9rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
+  padding: 0.85rem 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
   color: var(--ink);
-  background: rgba(255,255,255,0.65);
-  border-top: 1px solid rgba(0,0,0,0.12);
+  background: var(--paper-strong);
+  border-top: 1px solid rgba(0,0,0,0.14);
 }
 
-.lyric-block{
-  margin-bottom: 2.5rem;
+/* --------------------
+   LYRICS
+-------------------- */
+.lyric-block{ margin-bottom: var(--space-6); }
+
+.lyric-block h2{
+  font-size: 1.05rem;
+  margin-bottom: var(--space-3);
 }
 
 .lyrics{
   white-space: pre-wrap;
-  background: rgba(255,255,255,0.65);
-  border: 1px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--ink);
-  border-radius: 10px;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
   padding: 1rem 1.1rem;
   font-size: 0.95rem;
   line-height: 1.55;
 }
 
-.credit{
-  margin-top: 0.8rem;
-  display: inline-block;
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  background: var(--yellow);
-  border: 1px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  padding: 0.45rem 0.6rem;
-}
-
-/* --------------------
-   LYRICS PAGE ENHANCEMENTS
--------------------- */
-
-/* Gold titles for tracks / verses */
-.lyric-block h2{
-  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--yellow); /* same gold as h1 */
-  background: none;
-  border: none;
-  box-shadow: none;
-  margin-bottom: 0.8rem;
-}
-
-/* --------------------
-   PER-LYRIC COVER IMAGES
--------------------- */
-
 .lyric-cover{
-  margin: 1.2rem 0 1.6rem;
+  margin: var(--space-3) 0 var(--space-4);
 }
 
 .lyric-cover img{
   width: 100%;
   max-width: 360px;
-  height: auto;
-  display: block;
-  border-radius: 12px;
-  border: 1px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--ink);
-  background: rgba(255,255,255,0.35);
+  border-radius: var(--radius);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-md);
+  background: var(--paper-strong);
 }
 
-.cover-caption{
-  margin-top: 0.6rem;
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
+.credit{
+  margin-top: var(--space-3);
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.7);
+  background: rgba(255,255,255,0.65);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: 4px 4px 0 var(--shadow);
+  padding: 0.45rem 0.6rem;
 }
 
 /* --------------------
-   PROSE PAGE
+   PROSE
 -------------------- */
-
 .prose-entry{
-  margin-bottom: 3rem;
-  background: rgba(255,255,255,0.6);
-  border: 1px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--ink);
-  border-radius: 12px;
+  margin-bottom: var(--space-6);
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius);
   padding: 1.2rem 1.3rem;
 }
 
 .prose-entry h2{
-  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 0.95rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin-bottom: 0.4rem;
-}
-
-.meta{
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.65);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-2);
 }
 
 .prose-entry p{
-  margin-bottom: 0.9rem;
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.prose-entry em{
-  font-style: italic;
-}
-
-.prose-entry .credit{
-  margin-top: 1rem;
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: var(--yellow);
-  border: 1px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  padding: 0.4rem 0.6rem;
+  margin-bottom: var(--space-3);
 }
 
 /* --------------------
-   RELEVANT CASES (CASE FILE FEEL)
+   RELEVANT CASES (case file feel)
 -------------------- */
-
 .case-file{
-  background: rgba(255,255,255,0.65);
-  border: 1px solid var(--ink);
-  box-shadow: 10px 10px 0 var(--ink);
-  border-radius: 14px;
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: var(--shadow-lg);
+  border-radius: calc(var(--radius) + 2px);
   padding: 1.4rem 1.5rem;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-6);
 }
 
 .file-header{
@@ -417,23 +372,7 @@ footer p{
   justify-content: space-between;
   align-items: flex-start;
   gap: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.case-file h2{
-  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--yellow);
-  margin: 0 0 0.35rem;
-}
-
-.file-meta{
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.65);
+  margin-bottom: var(--space-4);
 }
 
 .file-stamp{
@@ -442,110 +381,48 @@ footer p{
   letter-spacing: 0.2em;
   text-transform: uppercase;
   background: var(--red);
-  color: var(--white);
+  color: #fff;
   padding: 0.55rem 0.7rem;
-  border: 1px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: 4px 4px 0 var(--shadow);
   transform: rotate(-2deg);
   white-space: nowrap;
 }
 
-.case{
-  padding: 0.8rem 0;
-}
-
-.case-head h3{
-  font-family: "Arial Black", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 0.35rem;
-}
-
-.case-meta{
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.65);
-  margin-bottom: 0.9rem;
-}
-
 .quote{
-  margin: 0 0 0.9rem;
-  padding: 0.9rem 1rem;
+  margin: 0 0 var(--space-3);
+  padding: 0.95rem 1rem;
   border: 1px dashed rgba(0,0,0,0.35);
-  background: rgba(255,255,255,0.55);
-  border-radius: 10px;
+  background: rgba(255,255,255,0.65);
+  border-radius: var(--radius);
   font-size: 0.98rem;
   line-height: 1.55;
-}
-
-.note{
-  margin-bottom: 0.8rem;
-  font-size: 0.95rem;
-}
-
-.attribution{
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.6);
 }
 
 .case-divider{
   border: none;
   border-top: 1px dashed rgba(0,0,0,0.35);
-  margin: 1.4rem 0;
+  margin: var(--space-4) 0;
 }
 
 .file-footer{
-  margin-top: 1.6rem;
-  padding-top: 1.2rem;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
   border-top: 1px solid rgba(0,0,0,0.18);
 }
 
 .disclaimer{
-  font-size: 0.78rem;
-  color: rgba(0,0,0,0.75);
-  margin-bottom: 0.9rem;
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-bottom: var(--space-3);
 }
 
-.case-file .credit{
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: var(--yellow);
-  border: 1px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  padding: 0.45rem 0.6rem;
+/* --------------------
+   RESPONSIVE
+-------------------- */
+@media (max-width: 600px){
+  .container{ padding: 3rem 1.15rem; }
+  h1{ letter-spacing: 0.10em; }
+  .hero p,
+  section p{ max-width: 100%; }
 }
-
-.poison-title{
-  color: var(--yellow);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-}
-
-.footer-card{
-  background: rgba(255,255,255,0.65);
-  border: 1px solid var(--ink);
-  box-shadow: 8px 8px 0 var(--ink);
-  border-radius: 12px;
-  padding: 1.1rem 1.2rem;
-  margin: 2rem 0 0;
-}
-
-.footer-card p{
-  margin: 0.5rem 0;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.footer-card p + p{
-  border-top: 1px solid rgba(0,0,0,0.18);
-  padding-top: 0.7rem;
-  margin-top: 0.7rem;
-}
-
