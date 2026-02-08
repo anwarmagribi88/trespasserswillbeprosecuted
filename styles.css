@@ -255,35 +255,77 @@ footer{
 /* --------------------
    MASONRY GALLERY (CSS columns)
 -------------------- */
+/* --------------------
+   MOSAIC GALLERY (CSS grid)
+   - consistent tile sizing
+   - images not too big
+   - cinematic crop without distortion
+-------------------- */
+
 .gallery{
-  column-count: 1;
-  column-gap: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  /* small tiles by default */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+/* 3 columns on tablets */
 @media (min-width: 700px){
-  .gallery{ column-count: 2; }
+  .gallery{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
 }
 
+/* 4 columns on wide screens */
 @media (min-width: 980px){
-  .gallery{ column-count: 3; }
+  .gallery{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
 }
 
+/* Cards become compact tiles */
 .card{
-  break-inside: avoid;
-  margin: 0 0 1.25rem;
+  margin: 0;                  /* IMPORTANT: grid handles spacing */
   background: var(--paper);
   border: var(--stroke) solid var(--ink);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm); /* smaller shadow = less “huge” feeling */
   border-radius: var(--radius);
   overflow: hidden;
 }
 
-.card img{ width: 100%; height: auto; display: block; }
+/* Make tiles feel mosaic: fixed visual height, cropped nicely */
+.card img{
+  width: 100%;
+  height: 180px;              /* controls “not too big” */
+  object-fit: cover;          /* crops without stretching */
+  display: block;
+  filter: contrast(1.02);
+}
+
+/* Slightly taller tiles on larger screens */
+@media (min-width: 700px){
+  .card img{ height: 210px; }
+}
+@media (min-width: 980px){
+  .card img{ height: 230px; }
+}
+
+/* Optional: let every 5th card be a “feature” tile */
+@media (min-width: 700px){
+  .gallery .card:nth-child(5n){
+    grid-column: span 2;
+  }
+  .gallery .card:nth-child(5n) img{
+    height: 260px;
+  }
+}
 
 .card figcaption{
-  padding: 0.85rem 0.95rem;
-  font-size: 0.92rem;
-  line-height: 1.45;
+  padding: 0.65rem 0.75rem;     /* tighter */
+  font-size: 0.85rem;           /* smaller */
+  line-height: 1.35;
   color: var(--ink);
   background: var(--paper-strong);
   border-top: 1px solid rgba(0,0,0,0.14);
