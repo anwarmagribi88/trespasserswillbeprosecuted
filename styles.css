@@ -92,6 +92,38 @@ p{
 }
 
 /* --------------------
+   REDACTION TAPE
+-------------------- */
+
+.redact{
+  position: relative;
+  display: inline-block;
+  color: transparent;              /* hide text */
+  background: var(--red);          /* your warning red */
+  padding: 0.15em 0.35em;
+   transform: rotate(-1deg);
+  border-radius: 2px;
+  vertical-align: baseline;
+  user-select: none;
+}
+
+/* Optional: subtle texture / print feel */
+.redact::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.15) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  pointer-events: none;
+}
+
+
+/* --------------------
    PANELS / CARDS (single source of truth)
 -------------------- */
 .panel{
