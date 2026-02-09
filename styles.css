@@ -54,7 +54,8 @@ body{
    LAYOUT
 -------------------- */
 .container{
-  max-width: var(--container);
+  width: 80vw;              /* 80% of viewport on desktop */
+  max-width: 1200px;        /* safety cap for ultra-wide screens */
   margin: 0 auto;
   padding: 3.5rem 1.5rem;
 }
@@ -496,8 +497,14 @@ footer{
    RESPONSIVE
 -------------------- */
 @media (max-width: 600px){
-  .container{ padding: 3rem 1.15rem; }
+  .container{
+    width: 100%;
+    padding: 3rem 1.15rem;
+  }
+
   h1{ letter-spacing: 0.10em; }
+
   .hero p,
   section p{ max-width: 100%; }
 }
+
