@@ -253,6 +253,38 @@ footer{
 }
 
 /* --------------------
+   LIGHTBOX (evidence expansion)
+-------------------- */
+
+.lightbox{
+  position: fixed;
+  inset: 0;
+  background: rgba(17,17,17,0.92); /* near-black ink */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+.lightbox.active{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.lightbox img{
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: var(--radius);
+  border: var(--stroke) solid var(--ink);
+  box-shadow: 14px 14px 0 var(--shadow);
+  background: var(--paper-strong);
+}
+
+
+/* --------------------
    MASONRY GALLERY (CSS columns)
 -------------------- */
 /* --------------------
