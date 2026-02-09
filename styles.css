@@ -326,6 +326,7 @@ footer{
   box-shadow: var(--shadow-sm); /* smaller shadow = less “huge” feeling */
   border-radius: var(--radius);
   overflow: hidden;
+   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 /* Make tiles feel mosaic: fixed visual height, cropped nicely */
@@ -335,6 +336,29 @@ footer{
   object-fit: cover;          /* crops without stretching */
   display: block;
   filter: contrast(1.02);
+   transition: transform 0.25s ease;
+  will-change: transform;
+}
+
+/* Hover / focus */
+.card:hover{
+  transform: translateY(-4px) scale(1.015);
+  box-shadow: 10px 10px 0 var(--shadow);
+}
+
+.card:hover img{
+  transform: scale(1.04);
+}
+
+@media (hover: none){
+  .card:hover{
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card:hover img{
+    transform: none;
+  }
 }
 
 /* Slightly taller tiles on larger screens */
