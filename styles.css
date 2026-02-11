@@ -65,6 +65,39 @@ header.hero{ margin-bottom: var(--space-5); }
 section{ margin-bottom: var(--space-6); }
 
 /* --------------------
+   FILE SECTIONS (spacing + order)
+-------------------- */
+
+.file-section{
+  margin-bottom: var(--space-6);
+}
+
+.file-section h3{
+  margin-bottom: var(--space-3);
+}
+
+.file-section p{
+  margin-top: 0;
+}
+
+/* Hero warning spacing */
+.hero-warning{
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  background: var(--paper);
+  border: var(--stroke) solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 0.9rem 1rem;
+}
+
+/* Improve rhythm between list + heading */
+.file-section h2{
+  margin-bottom: var(--space-4);
+}
+
+
+/* --------------------
    TYPOGRAPHY
 -------------------- */
 h1, h2, h3{
